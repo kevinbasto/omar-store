@@ -21,10 +21,10 @@ export class AccountsService {
     } catch (error) {
       throw error;
     }
-    return `This action returns all accounts`;
+    return accounts
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     let account : Account;
     try {
       account = await this.database.findOne(id);
@@ -34,9 +34,10 @@ export class AccountsService {
     return account;
   }
 
-  update(id: number, updateAccountDto: UpdateAccountDto) {
+  update(id: string, updateAccountDto: UpdateAccountDto) {
+    console.log(id);
     this.database.update(id, updateAccountDto);
-    return `account #${id} updated`;
+    return `account ${id} updated`;
   }
 
   remove(id: number) {

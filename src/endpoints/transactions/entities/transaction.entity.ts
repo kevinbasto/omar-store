@@ -9,5 +9,5 @@ export class Transaction {
     @Column()
     tax : number;
     @Column()
-    clientId : number
+    userId : number;
 }
