@@ -12,22 +12,25 @@ export class TransactionsService {
   ){}
 
   create(createTransactionDto: CreateTransactionDto) {
-    return 'This action adds a new transaction';
+    this.database.save(createTransactionDto)
+    return 'Transaction successfully saved';
   }
 
   findAll() {
-    return `This action returns all transactions`;
+    return this.database.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} transaction`;
+    return this.database.findOne(id);
   }
 
   update(id: number, updateTransactionDto: UpdateTransactionDto) {
-    return `This action updates a #${id} transaction`;
+    this.database.update(id, updateTransactionDto);
+    return `succesfully updated transaction`
   }
 
   remove(id: number) {
-    return `This action removes a #${id} transaction`;
+    this.database.delete(id);
+    return `Transaction #${id} has been deleted`;
   }
 }
